@@ -7,7 +7,7 @@ use LibraryCheck;
 
 enum GD_Format <GD_GIF GD_JPEG GD_PNG>;
 
-module GD:ver<0.0.3>:api<1.0> {
+module GD:ver<0.0.4>:api<1.0> {
 
     my Str $lib;
 

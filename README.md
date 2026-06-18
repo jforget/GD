@@ -17,6 +17,7 @@ Synopsis
 WARNING: This module is Work in Progress, which means: this interface is not final. This will perhaps change in the future.
 A sample of the code can be seen below.
 
+```
    use GD;
 
    if GD::Image.new(200, 200) -> $image {
@@ -54,7 +55,7 @@ A sample of the code can be seen below.
 
       $image.destroy();
    }
-
+```
 
 Installation
 ------------
@@ -67,17 +68,16 @@ Or if you have a local copy of this repository:
 
     zef install .
 
-
 Support
 -------
 
 Please report any bugs or send any patches on [Github](https://github.com/raku-community-modules/raku-GD/issues)
 
-
 Authors
 ------
 
 Henrique Dias
+
 Raku Community Module Authors
 
 See Also
@@ -89,10 +89,11 @@ See Also
 License
 -------
 
-This library is free software; you can redistribute it and/or modify it under the same terms as Perl itself.
+This library is free software; you can redistribute it and/or modify it
+under the Artistic License 2.0.
 
 Please see the [LICENCE](LICENCE) in the source directory for full details.
 
-[1]: lib/GD.pod "GD Perl6 Module Documentation"
+[1]: lib/GD.rakudoc "GD Raku Module Documentation"
 [2]: https://github.com/libgd/libgd/ "GD Source Repository"
 [3]: https://github.com/libgd/libgd/tree/master/examples "C examples from GD source repository"

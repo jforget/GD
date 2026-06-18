@@ -1,4 +1,6 @@
-v0.0.3 xxx
+v0.0.4 xxx
+
+v0.0.3 Wed 17 Jun 2026
     * Use the new file extensions such as .rakumod
     * Method loading the PNG graphic data into a blob variable, without using a file
     * Fix issue #14 from Github "erratic behaviour of rectangle method"
