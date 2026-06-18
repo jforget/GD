@@ -33,6 +33,26 @@ module GD:ver<0.0.4>:api<1.0> {
 
     constant LIB =  &find-lib-version;
 
+    sub GDGiantFont ()
+        returns OpaquePointer
+        is native(LIB) is export is symbol('gdFontGetGiant') {*}
+
+    sub GDLargeFont ()
+        returns OpaquePointer
+        is native(LIB) is export is symbol('gdFontGetLarge') {*}
+
+    sub GDMediumBoldFont ()
+        returns OpaquePointer
+        is native(LIB) is export is symbol('gdFontGetMediumBold') {*}
+
+    sub GDSmallFont ()
+        returns OpaquePointer
+        is native(LIB) is export is symbol('gdFontGetSmall') {*}
+
+    sub GDTinyFont ()
+        returns OpaquePointer
+        is native(LIB) is export is symbol('gdFontGetTiny') {*}
+
 
     my $errno := cglobal(Str, 'errno', int32);
 
@@ -183,6 +203,14 @@ module GD:ver<0.0.4>:api<1.0> {
         sub gdImageFilledPolygon(GD::Image, CArray[int32], int32, int32)
             is native(LIB) { ... };
 
+        sub gdImageString (GD::Image $im, OpaquePointer $font, int32 $x, int32 $y, Str, int32 $color)
+            #returns void
+            is native(LIB) is export {*}
+
+        sub gdImageStringUp (GD::Image $im, OpaquePointer $font, int32 $x, int32 $y, Str, int32 $color)
+            #returns void
+            is native(LIB) is export {*}
+
         sub gdFree(OpaquePointer)
             is native(LIB) { ... };
 
@@ -329,6 +357,19 @@ module GD:ver<0.0.4>:api<1.0> {
                     gdImagePolygon(self, $gdPoints, $n, $color);
 
             return $gdPoints;
+        }
+
+        method string(OpaquePointer :$font
+                   ,  List          :$location (Int $x1 where { $x1 ≥ 0 }, Int $y1 where { $y1 ≥ 0 }) = (0, 0)
+                   ,  Str           :$text
+                   ,  Int           :$color where { $color >= 0 } = 0
+                   ,  Bool          :$up = False) {
+            if $up {
+              gdImageStringUp(self, $font, $x1, $y1, $text, $color);
+            }
+            else {
+              gdImageString(  self, $font, $x1, $y1, $text, $color);
+            }
         }
 
         method open(Str() $filename, Str $mode --> GD::File ) {

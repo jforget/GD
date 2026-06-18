@@ -55,6 +55,18 @@ in order to use GD (preferably a recent version).
 
 The Raku API
 
+=head2 Fonts
+
+=head3 C<GDGiantFont>
+
+=head3 C<GDLargeFont>
+
+=head3 C<GDMediumBoldFont>
+
+=head3 C<GDSmallFont>
+
+=head3 C<GDTinyFont>
+
 =head2 Color Control
 
 =head3 C<colorAllocate>
@@ -76,6 +88,8 @@ The Raku API
 =head3 C<ellipse>
 
 =head3 C<polygon>
+
+=head3 C<string>
 
 =head2 Output Methods
 

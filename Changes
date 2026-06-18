@@ -1,4 +1,5 @@
 v0.0.4 xxx
+    * add method string() to print text within images
 
 v0.0.3 Wed 17 Jun 2026
     * Use the new file extensions such as .rakumod

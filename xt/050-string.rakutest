@@ -1,0 +1,40 @@
+#/usr/bin/env raku
+# -*- encoding: utf-8; indent-tabs-mode: nil -*-
+#
+# Afficher du texte dans les dessins
+# Printing text in the images
+#
+
+use Test;
+use GD;
+use MIME::Base64;
+
+use lib $*PROGRAM.parent;
+
+plan 1;
+
+my $width  = 100;
+my $height = 100;
+my $im     = GD::Image.new($width, $height);
+LEAVE $im.destroy if $im;
+
+my $white = $im.colorAllocate(red => 255, green => 255, blue => 255);
+my $red   = $im.colorAllocate(red => 255, green =>   0, blue =>   0);
+my $blue  = $im.colorAllocate(red =>   0, green =>   0, blue => 255);
+
+$im.string(font => GDGiantFont, location => (0, 80), text => "Horizontal", color => $red);
+$im.string(font => GDLargeFont, location => (0, 70), text => "Vertical",   color => $blue, up => True);
+
+my $png =  MIME::Base64.encode($im.png);
+my $test = qq :to/EOF/;
+<html>
+<head><title>Strings</title></head>
+<body>
+<h1>Embedded PNG data</h1>
+<img src='data:image/png;base64,$png'>
+</body>
+</html>
+EOF
+
+my $ref = $*PROGRAM.sibling("data/050-string.html").IO.slurp;
+ok $test eq $ref, "checking strings";
