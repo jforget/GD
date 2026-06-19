@@ -33,26 +33,25 @@ module GD:ver<0.0.4>:api<1.0> {
 
     constant LIB =  &find-lib-version;
 
-    sub GDGiantFont ()
+    sub GD-giant-font ()
         returns OpaquePointer
         is native(LIB) is export is symbol('gdFontGetGiant') {*}
 
-    sub GDLargeFont ()
+    sub GD-large-font ()
         returns OpaquePointer
         is native(LIB) is export is symbol('gdFontGetLarge') {*}
 
-    sub GDMediumBoldFont ()
+    sub GD-medium-bold-font ()
         returns OpaquePointer
         is native(LIB) is export is symbol('gdFontGetMediumBold') {*}
 
-    sub GDSmallFont ()
+    sub GD-small-font ()
         returns OpaquePointer
         is native(LIB) is export is symbol('gdFontGetSmall') {*}
 
-    sub GDTinyFont ()
+    sub GD-tiny-font ()
         returns OpaquePointer
         is native(LIB) is export is symbol('gdFontGetTiny') {*}
-
 
     my $errno := cglobal(Str, 'errno', int32);
 

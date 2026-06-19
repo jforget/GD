@@ -41,7 +41,7 @@ for @variant -> ($lbl, $code) {
   </body>
   </html>
   EOF
-  '040-test.html'.IO.spurt($test) if $lbl eq 'Centr';
+  #'040-test.html'.IO.spurt($test) if $lbl eq 'Centr';
 
   $im.destroy;
 

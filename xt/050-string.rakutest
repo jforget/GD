@@ -22,8 +22,8 @@ my $white = $im.colorAllocate(red => 255, green => 255, blue => 255);
 my $red   = $im.colorAllocate(red => 255, green =>   0, blue =>   0);
 my $blue  = $im.colorAllocate(red =>   0, green =>   0, blue => 255);
 
-$im.string(font => GDGiantFont, location => (0, 80), text => "Horizontal", color => $red);
-$im.string(font => GDLargeFont, location => (0, 70), text => "Vertical",   color => $blue, up => True);
+$im.string(font => GD-giant-font, location => (0, 80), text => "Horizontal", color => $red);
+$im.string(font => GD-large-font, location => (0, 70), text => "Vertical",   color => $blue, up => True);
 
 my $png =  MIME::Base64.encode($im.png);
 my $test = qq :to/EOF/;
@@ -38,3 +38,38 @@ EOF
 
 my $ref = $*PROGRAM.sibling("data/050-string.html").IO.slurp;
 ok $test eq $ref, "checking strings";
+
+=begin POD
+
+=head1 NAME
+
+050-string.raku - create an image containing a few labels
+
+=head1 SYNOPSIS
+
+  raku -I. xt/050-string.rakutest
+
+=head1 DESCRIPTION
+
+This program creates a picture  showing two labels (one horizontal and
+the other vertical) and compares it with a reference picture.
+
+=head1 PARAMETERS
+
+None.
+
+=head1 PREREQUISITE
+
+Raku modules C<GD> and C<MIME::Base64>.
+
+=head1 AUTHOR
+
+Jean Forget <J2N-FORGET at orange dot fr>
+
+=head1 COPYRIGHT AND LICENSE
+
+Copyright (c) 2026 Jean Forget, all rights reserved
+
+This program is free software; you can redistribute it and/or modify it under the Artistic License 2.0.
+
+=end POD

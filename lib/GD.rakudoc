@@ -57,15 +57,15 @@ The Raku API
 
 =head2 Fonts
 
-=head3 C<GDGiantFont>
+=head3 C<GD-giant-font>
 
-=head3 C<GDLargeFont>
+=head3 C<GD-large-font>
 
-=head3 C<GDMediumBoldFont>
+=head3 C<GD-medium-bold-font>
 
-=head3 C<GDSmallFont>
+=head3 C<GD-small-font>
 
-=head3 C<GDTinyFont>
+=head3 C<GD-tiny-font>
 
 =head2 Color Control
 
